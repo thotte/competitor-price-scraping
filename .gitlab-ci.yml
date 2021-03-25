@@ -8,17 +8,17 @@ stages:
   - Static Analysis
   - Test
 
-mypy:
-  stage: Static Analysis
-  script:
-  - pwd
-  - ls -l
-  - python -m mypy app.py
+# mypy:
+#   stage: Static Analysis
+#   script:
+#   - pwd
+#   - ls -l
+#   - python -m mypy app.py
 
-flake8:
-  stage: Static Analysis
-  script:
-  - flake8 --max-line-length=120 *.py
+# flake8:
+#   stage: Static Analysis
+#   script:
+#   - flake8 --max-line-length=120 *.py
 
 pylint:
   stage: Static Analysis

@@ -9,3 +9,5 @@ apache-airflow
 beautifulsoup4==4.9.3
 flask
 html5lib
+pylint
+pytest

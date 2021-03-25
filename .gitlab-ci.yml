@@ -7,6 +7,10 @@ before_script:
 stages:
   - Static Analysis
   - Test
+  - docker-build-master
+
+variables:
+  DOCKER_OPTS: "${CI_REGISTRY_IMAGE}/competitor-price-scraper"  
 
 # mypy:
 #   stage: Static Analysis
@@ -34,3 +38,22 @@ unit_test:
   - export PYTHONPATH="$PYTHONPATH:."
   - python -c "import sys;print(sys.path)"
   - pytest
+
+docker-build-master:
+  # Official docker image.
+  tags:
+  - node  
+  image: docker:latest
+  stage: docker-build-master
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY 
+  script:
+    - docker build --pull -t "$DOCKER_OPTS" .
+    - docker push "$DOCKER_OPTS"
+  when: manual
+  #only:
+  #  - merge_requests 
+  # only:
+  #   - tags       

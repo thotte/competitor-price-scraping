@@ -1,0 +1,36 @@
+image: "python:3.8"
+
+before_script:
+  - python3 --version
+  - pip3 install -r requirements.txt
+
+stages:
+  - Static Analysis
+  - Test
+
+mypy:
+  stage: Static Analysis
+  script:
+  - pwd
+  - ls -l
+  - python -m mypy app.py
+
+flake8:
+  stage: Static Analysis
+  script:
+  - flake8 --max-line-length=120 *.py
+
+pylint:
+  stage: Static Analysis
+  allow_failure: true
+  script:
+  - pylint -d C0301 *.py
+
+unit_test:
+  stage: Test
+  script:
+  - pwd
+  - ls -l
+  - export PYTHONPATH="$PYTHONPATH:."
+  - python -c "import sys;print(sys.path)"
+  - pytest

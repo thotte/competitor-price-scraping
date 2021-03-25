@@ -41,8 +41,6 @@ unit_test:
 
 docker-build-master:
   # Official docker image.
-  tags:
-  - node  
   image: docker:latest
   stage: docker-build-master
   services:

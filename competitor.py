@@ -5,12 +5,8 @@
 
 import logging
 from urllib import request
-import urllib
-from lxml import html
 import time
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
 logging.basicConfig(level=logging.INFO)
 

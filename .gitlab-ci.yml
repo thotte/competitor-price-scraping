@@ -50,7 +50,6 @@ docker-build-master:
   script:
     - docker build --pull -t "$DOCKER_OPTS" .
     - docker push "$DOCKER_OPTS"
-  when: manual
   #only:
   #  - merge_requests 
   # only:

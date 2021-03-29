@@ -30,14 +30,16 @@ class Hallon(Competitor):
 
         # For each campaign_price segment, extract prices and volumes and append to dataframe
         for priceplan in priceplans:
-            volume = priceplan.get('data-productname')
+            volume = priceplan.find('p', {'class' : 'Display__StyledDisplayMedium-sc-1i1vwyk-1 bredrt OfferCard__Name-sc-17ymwty-4 hqRmNd'}).text
             volume = volume.strip(' GB')
 
-            campaign_price = priceplan.get('data-productprice')
+            campaign_price = priceplan.find('p', {'class' : 'Display__StyledDisplayMedium-sc-1i1vwyk-1 bredrt OfferCard__Price-sc-17ymwty-5 bkHRNi'}).text
+            campaign_price = campaign_price.strip(' kr/mån')
+            print(campaign_price)
+            
+            searchstring = priceplan.find('p', {'class' : 'Detail__StyledDetailRegular-sc-1wrousk-2 exNjRY OfferCard__FinePrint-sc-17ymwty-10 eCSpPK'}).text
 
-            searchstring = priceplan.find('span', {'class' : 'expandable-product-card__main-price-info js-expandable-productcard__main-price-info'}).text
-
-            regexp = re.search('per mån i(.+?)mån', searchstring)
+            regexp = re.search('Priset gäller i (.+?) mån', searchstring)
             if regexp:
                 campaign_months = regexp.group(1).strip()
             else:
@@ -52,7 +54,7 @@ class Hallon(Competitor):
                 if regexp:
                     full_price = regexp.group(1).strip()
 
-            searchstring = priceplan.find('ul', {'class' : 'expandable-product-card__usp-list'}).text
+            searchstring = priceplan.find('p', {'class' : 'Detail__StyledDetailRegular-sc-1wrousk-2 exNjRY OfferCard__UspText-sc-17ymwty-14 lejUQQ'}).text
 
             regexp = re.search(r'\+(.+?)GB extra surf', searchstring)
             if regexp:

@@ -47,7 +47,7 @@ class Competitor:
             priceplans = soup.find_all('div', {'class' : 'css-iek43z el95idj0'})
             print(priceplans)
         elif self.name=="Hallon":
-            priceplans = soup.find_all('li', {'class' : 'expandable-product-card expandable-product-card--no-upsale js-expandable-productcard' })
+            priceplans = soup.find_all('li', {'class' : ['OfferCard__Card-sc-17ymwty-0 wIHrn', 'OfferCard__Card-sc-17ymwty-0 PDwUD'] })
         elif self.name=="Halebop":
             priceplans = soup.find_all('div', {'class' : 'plan-item__inner'})
         elif self.name=="Tele2":

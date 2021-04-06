@@ -1,9 +1,6 @@
-name: Python Master Workflow
+name: Python package
 
-on: 
-  push:
-    branches:
-      - 'master'
+on: [push]
 
 jobs:
   build:
@@ -11,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-
+    - uses: actions/checkout@v2
     - name: Set up Python 3.x
       uses: actions/setup-python@v2
       with:
@@ -21,54 +17,51 @@ jobs:
         # Optional - x64 or x86 architecture, defaults to x64
         architecture: 'x64'
     # You can test your matrix by printing the current Python version
-
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
-
+    - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-
+    - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
+    - uses: actions/checkout@v2
     - name: Set up Python
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
     - name: Test with pytest
       run: |
         pip install pytest
         pip install pytest-cov
         pytest test*.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html        
-
+    - uses: actions/checkout@v2
     - name: Set up Python
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
     - name: Lint with flake8
       continue-on-error: true
       run: |
         pip install flake8
         flake8 .   
+    - uses: actions/checkout@v1
     #- name: Login to DockerHub Registry
     #  run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
     #- name: Get the version

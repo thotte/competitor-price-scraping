@@ -1,0 +1,14 @@
+__pycache__/competitor.cpython-38.pyc
+.github/workflows/main.yml
+__pycache__/comviq.cpython-38.pyc
+__pycache__/halebop.cpython-38.pyc
+__pycache__/hallon.cpython-38.pyc
+__pycache__/tele2.cpython-38.pyc
+__pycache__/test_competitor.cpython-38-pytest-6.1.2.pyc
+__pycache__/test_comviq.cpython-38-pytest-6.1.2.pyc
+__pycache__/test_halebop.cpython-38-pytest-6.1.2.pyc
+__pycache__/test_hallon.cpython-38-pytest-6.1.2.pyc
+__pycache__/test_scraper_main.cpython-38-pytest-6.1.2.pyc
+__pycache__/test_tele2.cpython-38-pytest-6.1.2.pyc
+__pycache__/test_tre.cpython-38-pytest-6.1.2.pyc
+__pycache__/tre.cpython-38.pyc

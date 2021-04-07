@@ -25,18 +25,8 @@ class Competitor:
         logging.debug("self.website value: %s", self.website)
 
         try:
-            #options = Options()
-            #options.add_argument('--headless')
-            #options.add_argument('--no-sandbox')
-            #options.add_argument('--disable-dev-shm-usage')
-            #browser = webdriver.Chrome(options=options)
-            #browser.get(self.website)
-            #time.sleep(1)
             page = request.urlopen(self.website).read()
             soup = BeautifulSoup(page, "html5lib")
-            # Extract website
-            #soup = BeautifulSoup(browser.page_source, "html5lib")
-            time.sleep(1)
         except ValueError:
             logging.error("Problems getting data from the website at %s", self.website)
 

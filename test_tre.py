@@ -29,6 +29,11 @@ def test_number_of_rows():
     total_rows = len(function_returns_list)
     assert total_rows > 3
 
+def test_number_of_rows_failed():
+    """Test that dataframe rows is more than 5"""
+    total_rows = len(function_returns_list)
+    assert total_rows > 10    
+
 def test_column_names():
     """Test that column names are correct"""
     assert set(function_returns_list.columns) == {'volume', 'campaign_price', 'full_price', 'campaign_months', 'campaign_data', 'operator', 'date'}

@@ -24,11 +24,10 @@ class Competitor:
         logging.info("Getting dataframe for %s", self.name)
         logging.debug("self.website value: %s", self.website)
 
-        try:
-            page = request.urlopen(self.website).read()
-            soup = BeautifulSoup(page, "html5lib")
-        except ValueError:
-            logging.error("Problems getting data from the website at %s", self.website)
+
+        page = request.urlopen(self.website).read()
+        soup = BeautifulSoup(page, "html5lib")
+
 
         # Extract part of website with prices
         if self.name=="Comviq":

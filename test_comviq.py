@@ -25,7 +25,7 @@ def test_processing_dataframe():
     assert len(function_returns_list) != 0
 
 def test_number_of_rows():
-    """Test that dataframe rows is more than 5"""
+    """Test that dataframe rows is more than 3"""
     total_rows = len(function_returns_list)
     assert total_rows > 3
 

@@ -55,7 +55,7 @@ class Competitor:
         elif self.name=="Telia":
             priceplans = soup.find_all('div', {'class':'product-cards-list__card layout-4-col'})
         elif self.name=="Tre":
-            priceplans = soup.find_all('div', {'class' : 'FormLabelWithRecurringPrice__Wrapper-sc-100lnzr-0 bDFTGy'})
+            priceplans = soup.find_all('div', {'class' : 'FormLabelWithRecurringPrice__Wrapper-sc-100lnzr-0 fhGGQ'})
         else:
             priceplans = []
             logging.error("Priceplan not found")

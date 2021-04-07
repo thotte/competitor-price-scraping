@@ -41,7 +41,7 @@ class Halebop(Competitor):
             # For now, add this manually
             campaign_months = '3'
 
-            searchstring = priceplan.find('p', {'class' : 'plan-item__strike-through'}).text
+            searchstring = priceplan.find('p', {'class' : 'plan-item__price'}).text
             regexp = re.search('(.+?) kr/mån', searchstring)
             if regexp:
                 full_price = regexp.group(1).strip()

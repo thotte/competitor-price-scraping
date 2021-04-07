@@ -13,3 +13,8 @@ __pycache__/test_tele2.cpython-38-pytest-6.1.2.pyc
 __pycache__/test_tre.cpython-38-pytest-6.1.2.pyc
 __pycache__/tre.cpython-38.pyc
 archive/
+htmlcov/
+junit/
+.coverage
+__pycache__/
+.DS_Store
